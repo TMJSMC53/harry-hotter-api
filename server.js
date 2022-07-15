@@ -80,10 +80,10 @@ app.get("/", (req, res) => {
 // Serving Up JSON / This is a network request
 app.get("/api/:characterName", (req, res) => {
   // get objects based on property name
-  const characterName = req.params.characterName.toLowerCase();
+  const charactersName = req.params.characterName.toLowerCase();
 
-  if (characters[characterName]) {
-    res.json(characters[characterName]);
+  if (characters[charactersName]) {
+    res.json(characters[charactersName]);
   } else {
     res.json(characters["unknown"]);
   }
