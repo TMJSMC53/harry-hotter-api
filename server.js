@@ -9,6 +9,7 @@ app.use(express.json());
 
 const characters = {
   "harry potter": {
+    name: "Harry Potter",
     birthday: "July 31, 1980",
     house: "Gryffindor",
     patronus: "Stag",
@@ -26,6 +27,7 @@ const characters = {
   },
 
   "hermione granger": {
+    name: "Hermione Granger",
     birthday: "September 19, 1979",
     house: "Gryffindor",
     patronus: "Otter",
@@ -38,6 +40,7 @@ const characters = {
       "https://upload.wikimedia.org/wikipedia/en/d/d3/Hermione_Granger_poster.jpg",
   },
   "ron weasley": {
+    name: "Ron Weasley",
     birthday: "March 1, 1980",
     house: "Gryffindor",
     patronus: "Jack Russell Terrier",
@@ -50,6 +53,7 @@ const characters = {
   },
 
   "draco malfoy": {
+    name: "Draco Malfoy",
     birthday: "June 5, 1980",
     house: "Slytherin",
     patronus: "Dragon",
@@ -63,6 +67,7 @@ const characters = {
   },
 
   unknown: {
+    name: "Unknown",
     birthday: "Unknown",
     house: "Unknown",
     patronus: "Unknown",
