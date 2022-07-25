@@ -8,6 +8,7 @@ const connectionString = process.env.DB_STRING;
 
 app.use(cors());
 app.use(express.json());
+app.use("/public", express.static("public"));
 
 // const characters = {
 //   "albus dumbledore": {
@@ -145,7 +146,6 @@ MongoClient.connect(connectionString)
     app.get("/", (req, res) => {
       res.sendFile(__dirname + "/index.html");
     });
-    app.use("/public", express.static("public"));
 
     // Serving Up JSON / This is a network request
     app.get("/api/:characterName", (req, res) => {
