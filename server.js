@@ -8,7 +8,7 @@ const connectionString = process.env.DB_STRING;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
 // const characters = {
 //   "albus dumbledore": {
