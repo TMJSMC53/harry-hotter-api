@@ -12,7 +12,7 @@ async function apiRequest() {
 
     // create the inner text of our individual elements
 
-    document.getElementById("characterName").innerText = data.name;
+    document.getElementById("characterName").innerText = data.characterName;
     document.getElementById("characterBirthday").innerText = data.birthday;
     document.getElementById("characterHouse").innerText = data.house;
     document.getElementById("characterPatronus").innerText = data.patronus;
