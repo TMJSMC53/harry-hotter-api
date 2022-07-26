@@ -46,6 +46,27 @@
       <li><span>Children: </span><span id="characterChildren"></span></li>
     </ul>
   </section>
+  <!-- update -->
+  <section class="row">
+    <section class="col">
+      <h2>Update the character's information</h2>
+      <form action="/api" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="character name" name="characterName">
+        <input type="text" placeholder="birthday" name="birthday">
+        <input type="text" placeholder="house" name="house">
+        <input type="text" placeholder="patronus" name="patronus">
+        <input type="text" placeholder="boggart" name="boggart">
+        <input type="text" placeholder="wand" name="wand">
+        <input type="text" placeholder="parents" name="parents">
+        <input type="text" placeholder="blood status" name="bloodStatus">
+        <input type="text" placeholder="children" name="children">
+        <input type="text" placeholder="character image" name="image">
+        <button type="submit">SUBMIT NEW</button>
+        <button type="button" id="updateButton">UPDATE CHARACTER</button>
+      </form>
+    </section>
+  </section>
   <script src="/public/main.js"></script>
 </body>
 

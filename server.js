@@ -4,11 +4,6 @@ const cors = require("cors");
 const PORT = 8000;
 const MongoClient = require("mongodb").MongoClient;
 require("dotenv").config();
-const connectionString = process.env.DB_STRING;
-
-app.use(cors());
-app.use(express.json());
-app.use("/public", express.static("public"));
 
 // const characters = {
 //   "albus dumbledore": {
@@ -134,35 +129,75 @@ app.use("/public", express.static("public"));
 //     bloodStatus: "Unknown",
 //   },
 // };
+let db,
+  connectionString = process.env.DB_STRING,
+  dbName = "Harry-Potter-Api";
 
-MongoClient.connect(connectionString)
-  .then((client) => {
-    console.log(`Connected to Database`);
+MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
+  (client) => {
+    console.log(`Connected to ${dbName} Database`);
 
-    const db = client.db("Harry-Potter-Api");
+    db = client.db("Harry-Potter-Api");
+  }
+);
 
-    const infoCollection = db.collection("character-info");
+app.use(cors());
+app.use(express.json());
+app.use("/public", express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
-    app.get("/", (req, res) => {
-      res.sendFile(__dirname + "/index.html");
-    });
+// app.get("/", (req, res) => {
+//       res.sendFile(__dirname + "/index.html");
+//     });
 
-    // Serving Up JSON / This is a network request
-    app.get("/api/:characterName", (req, res) => {
-      // get objects based on property name
-      const charactersName = req.params.characterName.toLowerCase();
+// Serving Up JSON / This is a network request
+app.get("/api/:characterName", (req, res) => {
+  // get objects based on property name
+  const charactersName = req.params.characterName.toLowerCase();
 
-      infoCollection
-        .find({ name: charactersName })
-        .toArray()
-        .then((results) => {
-          console.log(results);
-          res.json(results[0]);
-        })
-        .catch((error) => console.log(error));
-    });
-  })
-  .catch((error) => console.log(error));
+  db.collection("character-info")
+    .find({ name: charactersName })
+    .toArray()
+    .then((results) => {
+      console.log(results);
+      res.json(results[0]);
+    })
+    .catch((error) => console.log(error));
+});
+
+// POST
+app.post("/api", (req, res) => {
+  console.log("post heard");
+  db.collection("character-info")
+    .insertOne(req.body)
+    .then((result) => {
+      console.log(result);
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err));
+});
+
+// PUT
+app.put("/updateEntry", (req, res) => {
+  console.log(req.body);
+  Object.keys(req.body).forEach((key) => {
+    if (
+      req.body[key] === null ||
+      req.body[key] === undefined ||
+      req.body[key] === ""
+    ) {
+      delete req.body[key];
+    }
+  });
+  console.log(req.body);
+  db.collection("character-info")
+    .findOneAndUpdate({ name: req.body.name }, { $set: req.body })
+    .then((result) => {
+      console.log(result);
+      res.json("Success");
+    })
+    .catch((error) => console.log(error));
+});
 
 // Port Listening
 app.listen(process.env.PORT || PORT, () => {
