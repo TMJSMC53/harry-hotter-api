@@ -5,35 +5,47 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="/public/style.css">
   <title>Harry Potter App</title>
 </head>
 
 <body>
-  <h1>Harry Potter Character Guide</h1>
+  <h1 class="fs-700 fw-bold accent-400">Welcome to the Harry Potter Character Guide</h1>
+  <p class="fs-500 fw-semi accent-100">The world of Harry Potter has captured millions of fans worldwide. Now, you can
+    get the
+    information of
+    the
+    characters that have
+    captured your heart for more than 20 years. Dive deep in the world of Harry Potter from the creative mind of J.K.
+    Rowling.</p>
   <h2>Enter the character's name below</h2>
-  <p>Harry Potter has captured millions of fans worldwide. Now, you can get the information of the characters that have
-    captured your heart. Dive deep in the world of Harry Potter from the creative mind of J.K. Rowling</p>
   <input type="text">
   <div class="buttons">
     <a class="sunflower" id="getButton">Get Info</a>
   </div>
 
-  <section class="pics-right">
-    <img src="" alt="character-image" class="border" id="characterImage">
-    <p class="caption" id="characterCaption">Photo</p>
+  <section class="mainContent">
+    <section class="pics-right">
+      <img src="" alt="character-image" class="border hidden" id="characterImage">
+
+    </section>
+    <ul class="list hidden">
+      <li><span>Character Name: </span><span id="characterName"></span></li>
+      <li><span>Birthday: </span><span id="characterBirthday"></span></li>
+      <li><span>House: </span><span id="characterHouse"></span></li>
+      <li><span>Patronus: </span><span id="characterPatronus"></span></li>
+      <li><span>Boggart: </span><span id="characterBoggart"></span></li>
+      <li><span>Wand: </span><span id="characterWand"></span></li>
+      <li><span>Parents: </span><span id="characterParents"></span></li>
+      <li><span>Blood Status: </span><span id="characterBlood"></span></li>
+      <li><span>Children: </span><span id="characterChildren"></span></li>
+    </ul>
   </section>
-  <ul class="list">
-    <li><span>Character Name: </span><span id="characterName"></span></li>
-    <li><span>Birthday: </span><span id="characterBirthday"></span></li>
-    <li><span>House: </span><span id="characterHouse"></span></li>
-    <li><span>Patronus: </span><span id="characterPatronus"></span></li>
-    <li><span>Boggart: </span><span id="characterBoggart"></span></li>
-    <li><span>Wand: </span><span id="characterWand"></span></li>
-    <li><span>Parents: </span><span id="characterParents"></span></li>
-    <li><span>Blood Status: </span><span id="characterBlood"></span></li>
-    <li><span>Children: </span><span id="characterChildren"></span></li>
-  </ul>
   <script src="/public/main.js"></script>
 </body>
 

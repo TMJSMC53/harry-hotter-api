@@ -10,8 +10,16 @@ async function apiRequest() {
     const data = await response.json();
     console.log(data);
 
-    // create the inner text of our individual elements
+    // toggle the class of our elements
+    const list = document.querySelector(".list");
+    list.classList.remove("hidden");
+    list.classList.add("show");
 
+    const img = document.querySelector(".border");
+    img.classList.remove("hidden");
+    img.classList.add("show");
+
+    // create the inner text of our individual elements
     document.getElementById("characterName").innerText = data.characterName;
     document.getElementById("characterBirthday").innerText = data.birthday;
     document.getElementById("characterHouse").innerText = data.house;
@@ -23,7 +31,7 @@ async function apiRequest() {
     document.getElementById("characterChildren").innerText = data.children;
 
     document.getElementById("characterImage").src = data.image;
-    document.getElementById("characterCaption").innerText = data.name;
+    // document.getElementById("characterCaption").innerText = data.name;
   } catch (error) {
     console.log(error);
   }
