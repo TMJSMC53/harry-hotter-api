@@ -62,10 +62,19 @@
         <input type="text" placeholder="blood status" name="bloodStatus">
         <input type="text" placeholder="children" name="children">
         <input type="text" placeholder="character image" name="image">
-        <button type="submit">SUBMIT NEW</button>
+        <button type="submit" id="createButton">SUBMIT NEW</button>
         <button type="button" id="updateButton">UPDATE CHARACTER</button>
       </form>
     </section>
+  </section>
+  <!-- delete -->
+
+  <section class="column">
+    <h2>Delete the character's information</h2>
+    <form action="/api" method="POST">
+      <input type="text" placeholder="name" name="name">
+      <button type="submit" id="deleteButton">DELETE CHARACTER</button>
+    </form>
   </section>
   <script src="/public/main.js"></script>
 </body>
