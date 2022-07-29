@@ -199,6 +199,16 @@ app.put("/updateEntry", (req, res) => {
     .catch((error) => console.log(error));
 });
 
+// DELETE
+app.delete("/deleteEntry", (req, res) => {
+  db.collection("character-info")
+    .deleteOne({ name: req.body.name })
+    .then((result) => {
+      console.log("Entry Deleted");
+      res.json();
+    })
+    .catch((error) => console.log(error));
+});
 // Port Listening
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running on port ${PORT}`);
