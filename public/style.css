@@ -143,6 +143,22 @@ svg {
 .mb-0 {
   margin-bottom: 1rem;
 }
+
+/* header navbar */
+.navbar-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  border: 2px solid red;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 /* main content */
 .main-content {
   display: flex;
