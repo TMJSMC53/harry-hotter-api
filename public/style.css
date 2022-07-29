@@ -18,10 +18,15 @@
 
   --fs-300: 0.8125rem;
   --fs-400: 0.875rem;
-  --fs-500: 1rem;
-  --fs-550: 1.5rem;
+  --fs-500: 1.2rem;
+  --fs-550: 1.6rem;
   --fs-600: 1.875rem;
+  --fs-650: 2rem;
   --fs-700: 2.5rem;
+
+  /* letter spacing */
+  --ls-100: 1.5px;
+  --ls-200: 2px;
 }
 
 /* https://piccalil.li/blog/a-modern-css-reset/ */
@@ -62,7 +67,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   font-family: var(--ff-primary);
-  margin: 50px 25px;
+  margin: 2.5rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -113,6 +118,9 @@ svg {
 .fs-600 {
   font-size: var(--fs-600);
 }
+.fs-650 {
+  font-size: var(--fs-650);
+}
 .fs-700 {
   font-size: var(--fs-700);
 }
@@ -126,6 +134,14 @@ svg {
 }
 .fw-bold {
   font-weight: var(--fw-bold);
+}
+
+/* letter-spacing */
+.ls-100 {
+  letter-spacing: var(--ls-100);
+}
+.ls-200 {
+  letter-spacing: var(--ls-200);
 }
 
 /* colors */
@@ -145,20 +161,88 @@ svg {
 }
 
 /* header navbar */
-.navbar-container {
-  padding: 1rem;
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
-  border: 2px solid red;
 }
 
-ul {
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
+
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  padding: 1rem;
+  display: block;
+  font-size: var(--fs-500);
+}
+
+.navbar-links li:hover {
+  background-color: var(--clr-primary-400);
+}
+
+.toggle-button {
+  position: absolute;
+  top: 6%;
+  right: 5%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: red;
+  border-radius: 10px;
+}
+
+/* media query */
+@media (max-width: 37.5rem) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links ul {
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    border: 2px solid red;
+  }
+
+  .navbar-links li {
+    text-align: center;
+  }
+
+  .navbar-links li a {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
+
 /* main content */
 .main-content {
   display: flex;
@@ -184,7 +268,6 @@ h1 {
   width: 100%;
   max-width: 500px;
   padding-bottom: 2rem;
-  letter-spacing: 0.18px;
 }
 
 p {
@@ -192,6 +275,10 @@ p {
   line-height: 1.75rem;
   text-align: justify;
   border: 2px solid red;
+}
+
+a {
+  text-decoration: none;
 }
 
 .list {

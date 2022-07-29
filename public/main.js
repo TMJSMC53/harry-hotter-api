@@ -1,3 +1,11 @@
+// hamburger menu
+const toggleButton = document.querySelector(".toggle-button");
+const navbarLinks = document.querySelector(".navbar-links");
+
+toggleButton.addEventListener("click", () => {
+  navbarLinks.classList.toggle("active");
+});
+
 document.querySelector("#getButton").addEventListener("click", apiRequest);
 document.querySelector("#createButton").addEventListener("click", createEntry);
 document.querySelector("#updateButton").addEventListener("click", updateEntry);
