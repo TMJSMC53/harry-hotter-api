@@ -141,13 +141,24 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
   }
 );
 
+// set middleware
+app.set("view engine", "ejs");
 app.use(cors());
 app.use(express.json());
-app.use("/public", express.static("public"));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
+// connect to ejs
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  db.collection("character-info")
+    .find()
+    .toArray()
+    .then((data) => {
+      let characterList = data.map((item) => item.characterName);
+      console.log(characterList);
+      res.render("index.ejs", { info: characterList });
+    })
+    .catch((error) => console.log(error));
 });
 
 // Serving Up JSON / This is a network request
