@@ -120,3 +120,20 @@ async function deleteEntry() {
     console.log(error);
   }
 }
+
+new (class CharacterAutocompletes {
+  constructor(charNameInput) {
+    this.characName = charNameInput.value;
+  }
+  renderDatalist(datalist, values) {
+    datalist.innerHTML = "";
+    datalist.appendChild(
+      values.reduce((fragment, value) => {
+        const option = document.createElement("option");
+        option.textContent = value;
+        fragment.appendChild(option);
+        return fragment;
+      }, document.createDocumentFragment())
+    );
+  }
+})(charNameInput);
