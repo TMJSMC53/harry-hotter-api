@@ -1,22 +1,9 @@
 const express = require("express");
-const livereload = require("livereload");
-const connectLiveReload = require("connect-livereload");
-const path = require("path");
-// Livereload code
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, "public"));
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => {
-    liveReloadServer.refresh("/");
-  }, 100);
-});
-
 const app = express();
 const cors = require("cors");
 const PORT = 8000;
 const MongoClient = require("mongodb").MongoClient;
 require("dotenv").config();
-app.use(connectLiveReload());
 
 // const characters = {
 //   "albus dumbledore": {
