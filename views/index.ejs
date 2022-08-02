@@ -62,7 +62,15 @@
     Rowling.</p>
   <h2 class="fs-600 text-primary mb-0">Enter the character's name below:</h2>
   <div class="button-in">
-    <input type="text" class="fs-600 mb-0">
+    <input type="text" class="fs-600 mb-0" id="charNameInput" name="name" list="charNames" autocomplete="off"
+      value="<%= typeof name === 'undefined' ? '' : name  %>" />
+    <datalist id="charNames">
+      <% for (const charName of charNames) { %>
+        <option>
+          <%=charName %>
+        </option>
+        <% } %>
+    </datalist>
 
     <a class="fs-500" id="getButton">Get Info</a>
   </div>
