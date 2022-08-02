@@ -156,7 +156,7 @@ app.get("/", (req, res) => {
     .then((data) => {
       let characterList = data.map((item) => item.characterName);
       console.log(characterList);
-      res.render("index.ejs", { info: characterList });
+      res.render("index.ejs", { characNames: characterList });
     })
     .catch((error) => console.log(error));
 });
