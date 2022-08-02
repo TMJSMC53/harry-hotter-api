@@ -101,6 +101,10 @@ svg {
 
 /* utility classes */
 
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
 /* font sizes */
 .fs-300 {
   font-size: var(--fs-300);
@@ -185,7 +189,12 @@ svg {
 }
 
 .navbar-links li:hover {
-  background-color: var(--clr-primary-400);
+  /* background-color: var(--clr-primary-400); */
+}
+
+.navbar-link li a {
+  color: var(--clr-primary-400);
+  font-weight: var(--fw-semi-bold);
 }
 
 .toggle-button {
@@ -204,6 +213,25 @@ svg {
   width: 100%;
   background-color: red;
   border-radius: 10px;
+}
+
+.underline-indicators > * {
+  cursor: pointer;
+  padding: var(--underline-gap, 0.5rem);
+  border: 0;
+  border-bottom: 0.2rem solid var(--clr-accent-400);
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-color: var(--clr-accent-400);
+  opacity: 0.5;
+}
+
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+  color: var(--clr-accent-400);
+  border-color: var(--clr-accent-400);
 }
 
 /* media query */
