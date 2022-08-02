@@ -49,6 +49,18 @@ async function apiRequest() {
   }
 }
 
+// datalist input options
+function onInput({ target: { value, list } }) {
+  for (const option of list.options) {
+    if (value.toLowerCase() === option.value.toLowerCase()) {
+      console.log("User entered name exactly");
+      return apiRequest();
+    }
+  }
+}
+
+document.querySelector("input").addEventListener("input", onInput);
+
 async function createEntry() {
   try {
     const response = await fetch("createEntry", {
