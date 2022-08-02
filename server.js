@@ -154,7 +154,7 @@ app.get("/", (req, res) => {
     .find()
     .toArray()
     .then((data) => {
-      let characterList = data.map((item) => item.characterName);
+      let characterList = data.map((item) => item.name);
       console.log(characterList);
       res.render("index.ejs", { characNames: characterList });
     })
