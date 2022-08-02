@@ -150,15 +150,16 @@ app.use(express.urlencoded({ extended: true }));
 
 // connect to ejs
 app.get("/", (req, res) => {
-  db.collection("character-info")
-    .find()
-    .toArray()
-    .then((data) => {
-      let characterList = data.map((item) => item.characterName);
-      console.log(characterList);
-      res.render("index.ejs", { info: characterList });
-    })
-    .catch((error) => console.log(error));
+  res.render("index.ejs", { info: [] });
+  // db.collection("character-info")
+  //   .find()
+  //   .toArray()
+  //   .then((data) => {
+  //     let characterList = data.map((item) => item.characterName);
+  //     console.log(characterList);
+  //     res.render("index.ejs", { info: characterList });
+  //   })
+  //   .catch((error) => console.log(error));
 });
 
 // Serving Up JSON / This is a network request
