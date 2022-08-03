@@ -149,18 +149,25 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 // connect to ejs
-app.get("/", (req, res) => {
-  db.collection("character-info")
-    .find()
-    .toArray()
-    .then((data) => {
-      let characterList = data.map((item) => item.name);
-      console.log(characterList);
-      res.render("index.ejs", { characNames: characterList });
-    })
-    .catch((error) => console.log(error));
-});
+// app.get("/", (req, res) => {
+//   db.collection("character-info")
+//     .find()
+//     .toArray()
+//     .then((data) => {
+//       let characterList = data.map((item) => item.name);
+//       console.log(characterList);
+//       res.render("index.ejs", { characNames: characterList });
+//     })
+//     .catch((error) => console.log(error));
+// });
 
+app.get("/", (req, res) => {
+  try {
+    res.render("index.ejs", {});
+  } catch (err) {
+    console.error(err);
+  }
+});
 // Serving Up JSON / This is a network request
 app.get("/api/:characterName", (req, res) => {
   // get objects based on property name
