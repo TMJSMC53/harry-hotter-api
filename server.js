@@ -162,11 +162,7 @@ app.use(express.urlencoded({ extended: true }));
 // });
 
 app.get("/", (req, res) => {
-  try {
-    res.render("index.ejs", {});
-  } catch (err) {
-    console.error(err);
-  }
+  console.log(res.render("index"));
 });
 
 // Serving Up JSON / This is a network request
