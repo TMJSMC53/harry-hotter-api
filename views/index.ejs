@@ -28,7 +28,7 @@
 
       <div class="navbar-links">
         <ul>
-          <li><a href="/index.ejs">Home</a></li>
+          <li><a href="index.ejs">Home</a></li>
           <li><a href="/about.html">About Us</a></li>
           <li><a href="/docs.html">Docs</a></li>
           <li><a href="/contact">Contact Us</a></li>
@@ -46,17 +46,15 @@
     captured your heart for more than 20 years. Dive deep in the world of Harry Potter from the creative mind of J.K.
     Rowling.</p>
   <h2 class="fs-600 text-primary mb-0">Enter the character's name below:</h2>
-  <div class="button-in">
-    <input type="text" class="fs-600 mb-0" id="charNameInput" list="charNames" />
+  <input type="text" class="fs-600 mb-0" id="charNameInput" list="charNames" />
 
-    <datalist id="charNames">
-      <% for (const characName of characNames) { %>
-        <option>
-          <%=characName %>
-        </option>
-        <% } %>
-    </datalist>
-    <a class="fs-500" id="getButton">Get Info</a>
+  <datalist id="charNames">
+    <% for (const characName of characNames) { %>
+      <option>
+        <%=characName %>
+      </option>
+      <% } %>
+  </datalist>
   </div>
 
   <section class="main-content">
@@ -93,7 +91,7 @@
         <input type="text" placeholder="children" name="children">
         <input type="text" placeholder="character image" name="image">
         <button type="submit" id="createButton">SUBMIT NEW</button>
-        <button type="button" id="updateButton">UPDATE CHARACTER</button>
+        <button type="button" class="button-in" id="updateButton">UPDATE CHARACTER</button>
       </form>
     </section>
   </section>
@@ -104,7 +102,7 @@
     <h2>Delete the character's information</h2>
     <form action="/api" method="POST">
       <input type="text" placeholder="name" name="name">
-      <button type="submit" id="deleteButton">DELETE CHARACTER</button>
+      <button type="submit" class="button-in" id="deleteButton">DELETE CHARACTER</button>
     </form>
   </section>
   <script src="main.js"></script>
