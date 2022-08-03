@@ -188,10 +188,6 @@ svg {
   font-size: var(--fs-500);
 }
 
-.navbar-links li:hover {
-  /* background-color: var(--clr-primary-400); */
-}
-
 .navbar-link li a {
   color: var(--clr-primary-400);
   font-weight: var(--fw-semi-bold);
