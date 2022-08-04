@@ -169,6 +169,7 @@ svg {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 4.5rem;
 }
 
 .navbar-links ul {
@@ -207,27 +208,13 @@ svg {
 .toggle-button .bar {
   height: 3px;
   width: 100%;
-  background-color: red;
+  background-color: var(--clr-accent-400);
   border-radius: 10px;
 }
 
-.underline-indicators > * {
-  cursor: pointer;
-  padding: var(--underline-gap, 0.5rem);
-  border: 0;
-  border-bottom: 0.2rem solid var(--clr-accent-400);
-}
-
-.underline-indicators > *:hover,
-.underline-indicators > *:focus {
-  border-color: var(--clr-accent-400);
-  opacity: 0.5;
-}
-
-.underline-indicators > .active,
-.underline-indicators > [aria-selected="true"] {
-  color: var(--clr-accent-400);
-  border-color: var(--clr-accent-400);
+.nav-link[aria-current="page"] {
+  text-decoration: underline wavy red 0.15rem;
+  text-underline-offset: 0.5rem;
 }
 
 /* media query */

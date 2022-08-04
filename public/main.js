@@ -1,9 +1,15 @@
 // hamburger menu
 const toggleButton = document.querySelector(".toggle-button");
 const navbarLinks = document.querySelector(".navbar-links");
-
 toggleButton.addEventListener("click", () => {
   navbarLinks.classList.toggle("active");
+});
+
+// this is to show the active page in the navbar
+document.querySelectorAll(".nav-link").forEach((link) => {
+  if (link.href === window.location.href) {
+    link.setAttribute("aria-current", "page");
+  }
 });
 
 document.querySelector("#getButton").addEventListener("click", apiRequest);
